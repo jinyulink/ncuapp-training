@@ -4,15 +4,20 @@ import { NativeBaseProvider, Divider, Center, Box, VStack, HStack, Checkbox, Ico
 import styles from './styles';
 import { Feather, Entypo } from '@expo/vector-icons';
 
+interface todo{
+  title: string;
+  isCompleted: boolean;
+}
+
 export default function App() {
   const initstate = [{
     title: '緊急程度: 2 | week2 HW',
     isCompleted: false
   }
 ];
-  const [inputValue, setInputValue] = React.useState("");
-  const [range, setRange] = useState(0);
-  const [list, setlist] = useState(initstate); // todolist
+  const [inputValue, setInputValue] = useState<string>("");
+  const [range, setRange] = useState<number>(0);
+  const [list, setlist] = useState<todo[]>(initstate); // todolist
   const Addtodo = title => {
     if(title === ''){
       Alert.alert('請輸入代辦事項');
