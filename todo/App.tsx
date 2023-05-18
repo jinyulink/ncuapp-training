@@ -18,7 +18,7 @@ export default function App() {
   const [inputValue, setInputValue] = useState<string>("");
   const [range, setRange] = useState<number>(0);
   const [list, setlist] = useState<todo[]>(initstate); // todolist
-  const Addtodo = title => {
+  const Addtodo = (title: string) => {
     if(title === ''){
       Alert.alert('請輸入代辦事項');
       return;
@@ -32,13 +32,13 @@ export default function App() {
       });
     }
   };
-  const handleDelete = index => {
+  const handleDelete = (index: number) => {
     setlist(prevList => {
       const temp = prevList.filter((_, itemI) => itemI !== index);
       return temp;
     });
   };
-  const handleStatusChange = index => {
+  const handleStatusChange = (index: number) => {
     setlist(prevList => {
       const newList = [...prevList];
       newList[index].isCompleted = !newList[index].isCompleted;
